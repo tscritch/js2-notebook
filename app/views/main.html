@@ -1,0 +1,9 @@
+<div data-ui-view class="memorandums">
+  <div class="text-center"><button class="btn btn-primary">+ add memorandum</button></div>
+  <ul>
+    <li data-ng-repeat="mem in main.mems" class="memorandum">
+      <h4>{{mem.title}}</h4>
+      <p>{{mem.note}}</p>
+    </li>
+  </ul>
+</div>
