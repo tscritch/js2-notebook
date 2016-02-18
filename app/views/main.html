@@ -1,9 +1,10 @@
 <div data-ui-view class="memorandums">
-  <div class="text-center"><button class="btn btn-primary">+ add memorandum</button></div>
+  <div class="text-center"><button class="btn btn-primary" data-ng-click="memCtrl.addMemorandum()">+ add memorandum</button></div>
   <ul>
-    <li data-ng-repeat="mem in main.mems" class="memorandum">
-      <h4>{{mem.title}}</h4>
-      <p>{{mem.note}}</p>
+    <li data-ng-repeat="mem in memCtrl.memorandums" class="memorandum">
+      <input type="text" name="title" value="{{mem.title}}" placeholder="title" class="form-control" data-ng-model="mem.title" data-ng-change="memCtrl.saveAll()">
+      <textarea name="note" placeholder="note" class="form-control" data-ng-model="mem.note" data-ng-change="memCtrl.saveAll()">{{mem.note}}</textarea>
+      <span class="glyphicon glyphicon-remove-sign" data-ng-click="memCtrl.deleteMemorandum(memCtrl.memorandums.indexOf(mem))"></span>
     </li>
   </ul>
 </div>
